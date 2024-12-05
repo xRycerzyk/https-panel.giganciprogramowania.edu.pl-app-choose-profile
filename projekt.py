@@ -1,1 +1,1 @@
-print("Adam")
+print("Adam i mati")
