@@ -1,5 +1,6 @@
 import pygame as py
 import random
+import time
 
 SCREEN_WIDHT = 832
 SCREEN_HEIGHT = 1000
@@ -25,11 +26,15 @@ while gra_dziala:
 
                 if x > 120:
                     if zdarzenie.key == py.K_a:
-                         x -= 216
+                         x -= 108
+                         time.sleep(0.2)
+                         x -= 108
                 
                 if x < 548:
                     if zdarzenie.key == py.K_d:
-                        x += 216
+                        x += 108
+                        time.sleep(0.2)
+                        x += 108
 
                         
     ekran.blit(obraz_tla, (0 , 0))
