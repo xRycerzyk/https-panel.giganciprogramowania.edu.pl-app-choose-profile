@@ -39,6 +39,7 @@ while gra_dziala:
                         
     ekran.blit(obraz_tla, (0 , 0))
     ekran.blit(taksowka, (x , y))
+    ekran.blit(auto, (x2, y2))
 
     py.display.flip()
 
