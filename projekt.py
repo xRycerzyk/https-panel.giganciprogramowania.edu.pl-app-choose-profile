@@ -1,6 +1,7 @@
 import pygame as py
 import random
 import time
+import copy
 
 SCREEN_WIDHT = 832
 SCREEN_HEIGHT = 1000
