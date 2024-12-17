@@ -1,16 +1,17 @@
 import pygame
 import pygame as py
-from py import rect
+import random
+from pygame import rect
 import copy
-from py.sprite import Group
+from pygame.sprite import Group
 
+class Auto(py.sprite.Sprite):
+    
+    SCREEN_WIDHT = 832
+    SCREEN_HEIGHT = 1000
+    x2 = 990
+    y2 = random.randint()
 
-SCREEN_WIDHT = 832
-SCREEN_HEIGHT = 1000
-x2 = 
-y2 = 
-
-class Auto(py.sprite.Sprite)
     def __init__(self, x, y,):
         self.pozycja = py.Rect(x, y, 96, 48)
         self.auto = py.image.load('car1.png')
