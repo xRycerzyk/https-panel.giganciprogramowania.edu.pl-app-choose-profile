@@ -2,6 +2,7 @@ import pygame as py
 import random
 import time
 import copy
+from Auto1 import Auto
 
 SCREEN_WIDHT = 832
 SCREEN_HEIGHT = 1000
