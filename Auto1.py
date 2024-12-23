@@ -9,20 +9,17 @@ class Auto(py.sprite.Sprite):
     
     SCREEN_WIDHT = 832
     SCREEN_HEIGHT = 1000
-    x2 = 990
-    y2 = random.randint()
 
     def __init__(self, x, y,):
-        self.pozycja = py.Rect(x, y, 96, 48)
-        self.auto = py.image.load('car1.png')
+        super().__self__()
+        self.rect = py.Rect(x, y, 96, 48)
+        self.image = py.image.load("car1.png")
+        self.auto_copy = self.image.copy()
 
-        def klon(self):
+    def klon(self):
             self.auto_copy = copy.copy(self.auto)
         
-        def maska(self):
-            maska_auta = 0
+    def maska(self):
+        maska_auta = (random.randint(1, 128), random.randint(1, 128), random.randint(1, 128)) 
 
-            while True:
-                maska_auta = (random.randint(1, 128), random.randint(1, 128), random.randint(1, 128)) 
-
-            self.auto_copy.fill(maska_auta, special_flags=py.BLEND_ADD)
+        self.auto_copy.fill(maska_auta , special_flags=py.BLEND_ADD)
