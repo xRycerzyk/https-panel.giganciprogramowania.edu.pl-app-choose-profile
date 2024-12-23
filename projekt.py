@@ -9,20 +9,24 @@ SCREEN_HEIGHT = 1000
 x = 120
 y = 700
 
+x2 = 990
+
 py.init()
 
 ekran = py.display.set_mode([SCREEN_WIDHT, SCREEN_HEIGHT])
 zegar = py.time.Clock()
 obraz_tla = py.image.load("background.png")
 taksowka = py.image.load("TAXI.png")
+auto = Auto()
 
 gra_dziala = True
 
 while gra_dziala:
+    y2 =  random.randrange(120, 548, 216)
     for zdarzenie in py.event.get():
-            if zdarzenie.type == py.KEYDOWN:
-                if zdarzenie.type == py.QUIT:
+            if zdarzenie.type == py.QUIT:
                     gra_dziala = False
+            elif zdarzenie.type == py.KEYDOWN:
                 if zdarzenie.key == py.K_ESCAPE:
                     gra_dziala = False
 
@@ -41,7 +45,7 @@ while gra_dziala:
                         
     ekran.blit(obraz_tla, (0 , 0))
     ekran.blit(taksowka, (x , y))
-    ekran.blit(auto, (x2, y2))
+    ekran.blit(auto , (x2 , y2))
 
     py.display.flip()
 
