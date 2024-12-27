@@ -20,6 +20,6 @@ class Auto(py.sprite.Sprite):
             self.auto_copy = copy.copy(self.auto)
         
     def maska(self):
-        maska_auta = (random.randint(1, 128), random.randint(1, 128), random.randint(1, 128)) 
+        maska_auta = (random.randrange(1, 128), random.randrange(1, 128), random.randrange(1, 128)) 
 
         self.auto_copy.fill(maska_auta , special_flags=py.BLEND_ADD)
