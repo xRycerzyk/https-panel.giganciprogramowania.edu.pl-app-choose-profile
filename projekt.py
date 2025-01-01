@@ -17,7 +17,7 @@ ekran = py.display.set_mode([SCREEN_WIDHT, SCREEN_HEIGHT])
 zegar = py.time.Clock()
 obraz_tla = py.image.load("background.png")
 taksowka = py.image.load("TAXI.png")
-auto = Auto()
+auto = clon.auto()
 
 gra_dziala = True
 
