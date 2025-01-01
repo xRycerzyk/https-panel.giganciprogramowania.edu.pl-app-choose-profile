@@ -19,10 +19,18 @@ obraz_tla = py.image.load("background.png")
 taksowka = py.image.load("TAXI.png")
 auta = py.sprite.Group()
 
+def dodaj_auta():
+     while True:
+        auto = Auto(x2 , y2)
+        auta.add(auto)
+
+#dodaj_auta()
+
 gra_dziala = True
 
 while gra_dziala:
     y2 =  random.randrange(120, 548, 216)
+    dodaj_auta()
     for zdarzenie in py.event.get():
             if zdarzenie.type == py.QUIT:
                     gra_dziala = False
