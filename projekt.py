@@ -1,8 +1,9 @@
 import pygame as py
 import random
 import time
-import copy
 from Auto1 import Auto
+from pygame.sprite import Group
+from pygame import rect
 
 SCREEN_WIDHT = 832
 SCREEN_HEIGHT = 1000
@@ -17,44 +18,48 @@ ekran = py.display.set_mode([SCREEN_WIDHT, SCREEN_HEIGHT])
 zegar = py.time.Clock()
 obraz_tla = py.image.load("background.png")
 taksowka = py.image.load("TAXI.png")
-auta = py.sprite.Group()
-
-def dodaj_auta():
-     while True:
-        auto = Auto(x2 , y2)
-        auta.add(auto)
-
-#dodaj_auta()
+auto1 = py.image.load("car1.png")
+PORUSZ_AUTEM = py.USEREVENT+1
+py.time.set_timer(PORUSZ_AUTEM, 10)
+#auto2 = py .image.load("car2.png")
 
 gra_dziala = True
+#pozycja = x2, 0
+y2 = 0
+
+x2 = random.randrange(120, 638 , 216)
+pozycja = x2, y2
 
 while gra_dziala:
-    y2 =  random.randrange(120, 548, 216)
-    dodaj_auta()
+    pozycja = x2, y2
+    y2 += 10
+
     for zdarzenie in py.event.get():
-            if zdarzenie.type == py.QUIT:
-                    gra_dziala = False
-            elif zdarzenie.type == py.KEYDOWN:
-                if zdarzenie.key == py.K_ESCAPE:
-                    gra_dziala = False
+        if zdarzenie.type == py.QUIT:
+                gra_dziala = False
 
-                if x > 120:
-                    if zdarzenie.key == py.K_a:
-                         x -= 108
-                         time.sleep(0.2)
-                         x -= 108
+        if y2 == 1000:
+             x2 = random.randrange(120, 638 , 216)
+             y2 = 0
+
+        elif zdarzenie.type == py.KEYDOWN:
+            if zdarzenie.key == py.K_ESCAPE:
+                gra_dziala = False
+
+            if x > 120:
+                if zdarzenie.key == py.K_a:
+                     x -= 108
+                     x -= 108
                 
-                if x < 548:
-                    if zdarzenie.key == py.K_d:
-                        x += 108
-                        time.sleep(0.2)
-                        x += 108
+            if x < 548:
+                if zdarzenie.key == py.K_d:
+                    x += 108
+                    x += 108
 
-                        
     ekran.blit(obraz_tla, (0 , 0))
     ekran.blit(taksowka, (x , y))
-    ekran.blit(auto , (x2 , y2))
+    ekran.blit(auto1 , (pozycja))
 
     py.display.flip()
 
-    zegar.tick(60)
+    zegar.tick(360)
