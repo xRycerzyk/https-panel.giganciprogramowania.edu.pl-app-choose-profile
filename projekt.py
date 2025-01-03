@@ -92,3 +92,6 @@ while gra_dziala:
     py.display.flip()
 
     zegar.tick(360)
+
+time.sleep(1)
+py.quit()
