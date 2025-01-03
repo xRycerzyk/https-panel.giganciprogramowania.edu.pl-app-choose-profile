@@ -29,26 +29,46 @@ y3 = -200
 
 x3 = random.randrange(120, 638 , 216)
 x2 = random.randrange(120, 638 , 216)
+
+while x2 == x3:
+     x3 = random.randrange(120, 638 , 216)
+     x2 = random.randrange(120, 638 , 216)
+
 pozycja = x2, y2
 pozycja1 = x3, y3
+
+a = random.randint(8, 13)
+b = random.randint(8, 13)
 
 while gra_dziala:
     pozycja = x2, y2
     pozycja1 = x3, y3
-    y2 += 10
-    y3 += 10
+    y2 += a
+    y3 += b
 
     for zdarzenie in py.event.get():
         if zdarzenie.type == py.QUIT:
                 gra_dziala = False
 
-        if y2 == 1000:
+        if y2 >= 1000:
              x2 = random.randrange(120, 638 , 216)
-             y2 = -200
+             y2 = -600
+
+             a = random.randint(8, 13)
+             b = random.randint(8, 13)
+             
+             while x3 == x2:
+                 x2 = random.randrange(120, 638 , 216)
         
-        if y3 == 1000:
+        if y3 >= 1000:
             x3 = random.randrange(120, 638 , 216)
-            y3 = -200
+            y3 = -600
+
+            a = random.randint(8, 13)
+            b = random.randint(8, 13)
+
+            while x3 == x2:
+                 x3 = random.randrange(120, 638 , 216)
 
         elif zdarzenie.type == py.KEYDOWN:
             if zdarzenie.key == py.K_ESCAPE:
