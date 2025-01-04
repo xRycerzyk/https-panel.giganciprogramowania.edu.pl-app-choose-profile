@@ -1,8 +1,8 @@
 import pygame as py
 import random
 import time
-from pygame.sprite import Group
-from pygame import rect
+# from pygame.sprite import Group
+# from pygame import rect
 
 
 SCREEN_WIDHT = 832
@@ -20,8 +20,6 @@ zegar = py.time.Clock()
 obraz_tla = py.image.load("background.png")
 taksowka = py.image.load("TAXI.png")
 auto1 = py.image.load("car1.png")
-PORUSZ_AUTEM = py.USEREVENT+1
-py.time.set_timer(PORUSZ_AUTEM, 10)
 auto2 = py .image.load("car2.png")
 
 gra_dziala = True
