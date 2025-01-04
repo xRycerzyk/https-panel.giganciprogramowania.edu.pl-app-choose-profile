@@ -4,12 +4,14 @@ import time
 from pygame.sprite import Group
 from pygame import rect
 
+
 SCREEN_WIDHT = 832
 SCREEN_HEIGHT = 1000
 x = 120
 y = 700
 
 x2 = 990
+points = 0
 
 py.init()
 
@@ -53,9 +55,10 @@ while gra_dziala:
         if y2 >= 1000:
              x2 = random.randrange(120, 638 , 216)
              y2 = -600
+             points += 1
 
              a = random.randint(8, 13)
-             b = random.randint(8, 13)
+             #b = random.randint(8, 13)
              
              while x3 == x2:
                  x2 = random.randrange(120, 638 , 216)
@@ -64,11 +67,14 @@ while gra_dziala:
             x3 = random.randrange(120, 638 , 216)
             y3 = -600
 
-            a = random.randint(8, 13)
+            #a = random.randint(8, 13)
             b = random.randint(8, 13)
 
             while x3 == x2:
                  x3 = random.randrange(120, 638 , 216)
+        
+        if points >= 50:
+            gra_dziala = False
 
         elif zdarzenie.type == py.KEYDOWN:
             if zdarzenie.key == py.K_ESCAPE:
