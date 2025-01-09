@@ -1,7 +1,7 @@
 import pygame as py
 import random
 import time
-from pygame.sprite import Sprite
+from pygame.sprite import Group
 from pygame import rect
 
 class Auto1(py.sprite.Sprite):
