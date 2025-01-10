@@ -43,7 +43,7 @@ taksowka = Taksowka()
 auto1 = Auto1()
 PORUSZ_AUTEM = py.USEREVENT+1
 py.time.set_timer(PORUSZ_AUTEM, 10)
-auto2 = Auto2
+auto2 = Auto2()
 
 auto1_group.add(auto1)
 auto2_group.add(auto2)
@@ -73,8 +73,8 @@ while gra_dziala:
     y2 += a
     y3 += b
 
-    kolizja_z_autem1 = py.sprite.spritecollideany(taksowka, auto1)
-    kolizja_z_autem2 = py.sprite.spritecollideany(taksowka, auto2)
+    kolizja_z_autem1 = py.sprite.spritecollideany(taksowka, auto1_group)
+    kolizja_z_autem2 = py.sprite.spritecollideany(taksowka, auto2_group)
 
 
 
