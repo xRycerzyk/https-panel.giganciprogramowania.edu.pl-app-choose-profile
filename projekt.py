@@ -20,6 +20,7 @@ py.init()
 
 ekran = py.display.set_mode([SCREEN_WIDHT, SCREEN_HEIGHT])
 zegar = py.time.Clock()
+py.display.set_caption('Turbo Taxi Driver')
 obraz_tla = py.image.load("background.png")
 
 PORUSZ_AUTEM = py.USEREVENT+1
