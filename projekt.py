@@ -16,35 +16,15 @@ points = 0
 
 py.init()
 
-class Auto1():
-    def __init__(self, x2, y2):
-        self.x2 = globals()[x2]
-        self.y2 = globals()[y2]
-        self.hitbox = py.Rect(self.x2, self.y2, 180, 280)
-        self.image = py.image.load('car1.png')
-    
-class Taksowka():
-    def __init__(self, x, y):
-        self.x = globals()[x]
-        self.y = globals()[y]
-        self.hitbox = py.Rect(self.x, self.y, 155, 281)
-        self.image = py.image.load('TAXI.png')
 
-class Auto2():
-    def __init__(self, x3, y3):
-        self.x3 = globals()[x3]
-        self.y3 = globals()[y3]
-        self.hitbox = py.Rect(self.x3, self.y3, 180, 280)
-        self.image = py.image.load('car2.png')
 
 ekran = py.display.set_mode([SCREEN_WIDHT, SCREEN_HEIGHT])
 zegar = py.time.Clock()
 obraz_tla = py.image.load("background.png")
-taksowka = Taksowka()
-auto1 = Auto1()
+
 PORUSZ_AUTEM = py.USEREVENT+1
 py.time.set_timer(PORUSZ_AUTEM, 10)
-auto2 = Auto2()
+
 
 
 
@@ -58,6 +38,37 @@ y3 = -200
 
 x3 = random.randrange(120, 638 , 216)
 x2 = random.randrange(120, 638 , 216)
+
+class Auto1():
+    def __init__(self):
+        global x2
+        self.x2 = x2
+        global y2
+        self.y2 = y2
+        self.hitbox = py.Rect(self.x2, self.y2, 180, 280)
+        self.image = py.image.load('car1.png')
+    
+class Taksowka():
+    def __init__(self):
+        global x
+        self.x = x
+        global y
+        self.y = y
+        self.hitbox = py.Rect(self.x, self.y, 155, 281)
+        self.image = py.image.load('TAXI.png')
+
+class Auto2():
+    def __init__(self):
+        global x3
+        global y3
+        self.x3 = x3
+        self.y3 = y3
+        self.hitbox = py.Rect(self.x3, self.y3, 180, 280)
+        self.image = py.image.load('car2.png')
+
+taksowka = Taksowka()
+auto1 = Auto1()
+auto2 = Auto2()
 
 while x2 == x3:
     x3 = random.randrange(120, 638 , 216)
