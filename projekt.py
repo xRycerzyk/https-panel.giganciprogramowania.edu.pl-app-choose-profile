@@ -146,6 +146,11 @@ while gra_dziala:
                 auto1.update_hitbox()
                 taksowka.update_hitbox()
                 auto2.update_hitbox()
+    
+    if taksowka.hitbox.colliderect(auto1.hitbox):
+        gra_dziala = False
+    if taksowka.hitbox.colliderect(auto2.hitbox):
+        gra_dziala = False
 
     ekran.blit(obraz_tla, (0 , 0))
     ekran.blit(taksowka.image, (taksowka.hitbox))
