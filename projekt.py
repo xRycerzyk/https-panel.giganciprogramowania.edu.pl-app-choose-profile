@@ -80,6 +80,8 @@ b = random.randint(8, 13)
 
 while gra_dziala:
 
+    prev_x = taksowka.x
+
     auto1.y += a
     auto2.y += b
 
@@ -148,8 +150,10 @@ while gra_dziala:
                 auto2.update_hitbox()
     
     if taksowka.hitbox.colliderect(auto1.hitbox):
+        taksowka.x = prev_x
         gra_dziala = False
     if taksowka.hitbox.colliderect(auto2.hitbox):
+        taksowka.x = prev_x
         gra_dziala = False
 
     ekran.blit(obraz_tla, (0 , 0))
