@@ -9,6 +9,9 @@ SCREEN_HEIGHT = 1000
 
 
 py.init()
+py.font.init()
+
+CZCIONKA = py.font.SysFont("Comic Sans MS" , 45)
 
 ekran = py.display.set_mode([SCREEN_WIDHT, SCREEN_HEIGHT])
 zegar = py.time.Clock()
@@ -72,9 +75,6 @@ while auto1.x == auto2.x:
     auto1.x = random.randrange(120, 638 , 216)
     auto2.x = random.randrange(120, 638 , 216)
 
-#pozycja = auto1.x, auto1.y
-#pozycja1 = x3, y3
-
 a = random.randint(8, 13)
 b = random.randint(8, 13)
 
@@ -100,7 +100,6 @@ while gra_dziala:
              points += 1
 
              a = random.randint(8, 13)
-             #b = random.randint(8, 13)
              
              while auto2.x == auto1.x:
                 auto1.x = random.randrange(120, 638 , 216)
@@ -112,8 +111,7 @@ while gra_dziala:
         if auto2.y >= 1000:
             auto2.x = random.randrange(120, 638 , 216)
             auto2.y = -600
-
-            #a = random.randint(8, 13)
+            
             b = random.randint(8, 13)
 
             while auto2.x == auto1.x:
@@ -152,6 +150,7 @@ while gra_dziala:
     if taksowka.hitbox.colliderect(auto1.hitbox):
         taksowka.x = prev_x
         gra_dziala = False
+
     if taksowka.hitbox.colliderect(auto2.hitbox):
         taksowka.x = prev_x
         gra_dziala = False
