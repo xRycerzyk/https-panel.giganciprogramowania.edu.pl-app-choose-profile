@@ -22,16 +22,6 @@ PORUSZ_AUTEM = py.USEREVENT+1
 py.time.set_timer(PORUSZ_AUTEM, 10)
 
 gra_dziala = True
-
-class Auto1():
-    def __init__(self):
-        self.x = 990
-        self.y = -200
-        self.hitbox = py.Rect(self.x, self.y, 180, 280)
-        self.image = py.image.load('car1.png')
-    
-    def update_hitbox(self):
-        self.hitbox.topleft = (self.x , self.y)
     
 class Taksowka():
     def __init__(self):
@@ -43,12 +33,12 @@ class Taksowka():
     def update_hitbox(self):
         self.hitbox.topleft = (self.x , self.y)
 
-class Auto2():
-    def __init__(self):
-        self.x = 990
-        self.y = -200
+class Auto():
+    def __init__(self , x , y , image):
+        self.x = x
+        self.y = y
         self.hitbox = py.Rect(self.x, self.y , 180, 280)
-        self.image = py.image.load('car2.png')
+        self.image = py.image.load(image)
     
     def update_hitbox(self):
         self.hitbox.topleft = (self.x , self.y)
@@ -56,8 +46,8 @@ class Auto2():
 
 
 taksowka = Taksowka()
-auto1 = Auto1()
-auto2 = Auto2()
+auto1 = Auto(990 , -200 , 'car1.png')
+auto2 = Auto(990 , -200 , 'car2.png')
 
 auto1.y = -200
 auto2.y = -200
