@@ -11,7 +11,9 @@ SCREEN_HEIGHT = 1000
 py.init()
 py.font.init()
 
-CZCIONKA = py.font.SysFont("Comic Sans MS" , 45)
+CZCIONKA = py.font.SysFont("Comic Sans MS" , 100)
+
+KOLOR = (247 , 17 , 255)
 
 ekran = py.display.set_mode([SCREEN_WIDHT, SCREEN_HEIGHT])
 zegar = py.time.Clock()
@@ -112,6 +114,15 @@ while gra_dziala:
             auto2.update_hitbox()
         
         if points >= 50:
+            tekst_win  = CZCIONKA.render("You Win!" , True , KOLOR)
+            baner = py.Rect(SCREEN_WIDHT / 2 - tekst_win.get_width() / 2 , SCREEN_HEIGHT / 2 - tekst_win.get_height() / 2 , 410 , 130)
+            py.draw.rect(ekran , (255 , 255 , 255) , baner)
+            ekran.blit(tekst_win , (SCREEN_WIDHT / 2 - tekst_win.get_width() / 2 , SCREEN_HEIGHT / 2 - tekst_win.get_height() / 2))
+            
+            py.display.flip()
+            
+            time.sleep(3)
+
             gra_dziala = False
 
         elif zdarzenie.type == py.KEYDOWN:
@@ -139,10 +150,32 @@ while gra_dziala:
     
     if taksowka.hitbox.colliderect(auto1.hitbox):
         taksowka.x = prev_x
+        tekst_lose = CZCIONKA.render("You Lose!" , True , KOLOR)
+
+        baner = py.Rect(SCREEN_WIDHT / 2 - tekst_lose.get_width() / 2 , SCREEN_HEIGHT / 2 - tekst_lose.get_height() , 430 , 150)
+        py.draw.rect(ekran , (255 , 255 , 255) , baner)
+        ekran.blit(tekst_lose , (SCREEN_WIDHT / 2 - tekst_lose.get_width() / 2 , SCREEN_HEIGHT / 2 - tekst_lose.get_height()))
+
+        py.display.flip()
+
+        time.sleep(3)
+
         gra_dziala = False
+
 
     if taksowka.hitbox.colliderect(auto2.hitbox):
         taksowka.x = prev_x
+        gra_dziala = False
+        tekst_lose = CZCIONKA.render("You Lose!" , True , KOLOR)
+
+        baner = py.Rect(SCREEN_WIDHT / 2 - tekst_lose.get_width() / 2 , SCREEN_HEIGHT / 2 - tekst_lose.get_height() , 430 , 150)
+        py.draw.rect(ekran , (255 , 255 , 255) , baner)
+        ekran.blit(tekst_lose , (SCREEN_WIDHT / 2 - tekst_lose.get_width() / 2 , SCREEN_HEIGHT / 2 - tekst_lose.get_height()))
+
+        py.display.flip()
+        
+        time.sleep(3)
+
         gra_dziala = False
 
     ekran.blit(obraz_tla, (0 , 0))
@@ -158,5 +191,4 @@ while gra_dziala:
 
     zegar.tick(360)
 
-time.sleep(1)
 py.quit()
